@@ -1,6 +1,23 @@
-<div class="jumbotron">
-  <h1>Photos</h1>
-</div>
+<h1>Photos</h1>
+<div ng-controller="PhotosCtrl">
+  <input type="text" ng-enter="submitSearch()" ng-model="searchKeyword">
+  <!-- Least Gallery -->
+  <section id="least">
 
-<div class="row marketing">
+    <!-- Least Gallery: Fullscreen Preview -->
+    <div class="least-preview"></div>
+
+    <!-- Least Gallery: Thumbnails -->
+    <ul class="least-gallery">
+      <!-- 1th thumbnail -->
+      <li ng-repeat="photo in photos">
+      <div style="overflow:hidden; max-height:150px">
+        <a href="{{photosOriginal[$index].thumbUrl}}" title="{{photo.title | truncate:20}}">
+          <img src="{{photo.thumbUrl}}" alt="{{photo.title}}" />
+        </a>
+      </div>
+      </li>
+    </ul>
+  </section>
+<!-- Least Gallery end -->
 </div>

@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link href="bower_components/least.js-2/src/css/least.min.css" rel="stylesheet" />
     <!-- endbuild -->
   </head>
   <body>
@@ -23,8 +24,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-app="app">
-      <header ng-include src="'views/nav.html'"></header>
+    <div class="container-fluid" ng-app="app">
+      <div class="row">
+        <header ng-include src="'views/nav.html'"></header>
+      </div>
       <div ng-view="">
       </div>
       <footer ng-include src="'views/footer.html'"></footer>

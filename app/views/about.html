@@ -1,6 +1,5 @@
-<div class="jumbotron">
-  <h1>About</h1>
-</div>
-
-<div class="row marketing">
+<h1>About</h1>
+<div ng-controller="AboutCtrl">
+  <input type="text" ng-enter="submitSearch()" ng-model="searchKeyword">
+  {{info}}
 </div>
