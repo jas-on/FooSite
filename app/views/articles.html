@@ -1,6 +1,7 @@
-<div class="jumbotron">
-  <h1>Articles</h1>
-</div>
-
-<div class="row marketing">
+<h1>Articles</h1>
+<div ng-controller="ArticlesCtrl">
+  <input type="text" ng-enter="submitSearch()" ng-model="searchKeyword">
+  <p ng-repeat="art in articles">
+    {{art.lead_paragraph}}
+  </p>
 </div>

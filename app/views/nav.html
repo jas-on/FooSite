@@ -1,5 +1,8 @@
-<div ng-controller="HeaderCtrl"  class="header">
-  <ul class="nav nav-pills pull-right">
+<div class="navbar-header">
+  <a href="#" class="navbar-brand">Build a Website</a>
+</div>
+<nav ng-controller="HeaderCtrl" role="navigation" class="collapse navbar-collapse bs-navbar-collapse header">
+  <ul class="nav navbar-nav">
     <li ng-class="{ active: isActive('/home')}"><a ng-href="#/home" >Home</a></li>
     <li ng-class="{ active: isActive('/about')}"><a ng-href="#/about">About</a></li>
     <li ng-class="{ active: isActive('/links')}"><a ng-href="#/links">Links</a></li>
@@ -7,5 +10,4 @@
     <li ng-class="{ active: isActive('/videos')}"><a ng-href="#/videos">Videos</a></li>
     <li ng-class="{ active: isActive('/articles')}"><a ng-href="#/articles">Articles</a></li>
   </ul>
-  <h3 class="text-muted">Build a Webiste</h3>
-</div>
+</nav>

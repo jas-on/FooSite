@@ -2,13 +2,12 @@
 var app = angular.module('app');
 
 app.controller('AboutCtrl',['$scope', 'wikiData', function ($scope, wikiData) {
-  $scope.thumbSize = 'small';
-
-  $scope.submitSearch = function getPhotos() {
+  $scope.submitSearch = function getStuff() {
 
     wikiData.getAllItems($scope.searchKeyword).then(function (data) {
       var parsedData = angular.fromJson(data);
-      $scope.items = parsedData.extract;
+      var key = Object.keys(parsedData.query.pages)[0];
+      $scope.info = parsedData.query.pages[key].extract;
     },
     function (errorMessage) {
       $scope.error = errorMessage;
@@ -26,12 +25,11 @@ app.factory('wikiData',['$http', '$q', function ($http, $q) {
     getAllItems: function (keyWord) {
       //Creating a deferred object
       var deferred = $q.defer();
-      var apiUrl = 'http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=' + keyWord + '&format=json&redirects&inprop=url&indexpageidsa';
-      //Calling Web API to fetch pics
-      $http({method: 'GET', url: apiUrl}).success(function (data) {
-        //Passing data to deferred's resolve function on successful completion
+      var apiUrl = 'http://en.wikipedia.org/w/api.php?action=query&prop=extracts&converttitles&redirects&titles='+keyWord+'&format=json&callback=?';
+      $.getJSON(apiUrl, function(data) {
         deferred.resolve(data);
-      }).error(function (error) {
+      })
+      .fail(function (error) {
         //Sending a friendly error message in case of failure
         deferred.reject('An error occured while fetching items' + error);
       });

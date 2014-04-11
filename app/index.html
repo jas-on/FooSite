@@ -15,6 +15,7 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
     <link href="bower_components/least.js-2/src/css/least.min.css" rel="stylesheet" />
     <!-- endbuild -->
   </head>
@@ -24,10 +25,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container-fluid" ng-app="app">
-      <div class="row">
-        <header ng-include src="'views/nav.html'"></header>
-      </div>
+    <div class="container" ng-app="app">
+      <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner" ng-include src="'views/nav.html'"></header>
       <div ng-view="">
       </div>
       <footer ng-include src="'views/footer.html'"></footer>
@@ -70,6 +69,8 @@
         <script src="scripts/controllers/videos.js"></script>
         <script src="scripts/controllers/articles.js"></script>
         <script src="scripts/controllers/header.js"></script>
+        <script type="text/javascript" charset="utf-8" src="scripts/misc/tubular/js/jquery.tubular.1.0.js"></script> 
+        <script type="text/javascript" charset="utf-8" src="scripts/misc/prettyphoto/js/jquery.prettyPhoto.js"></script> 
         <!-- endbuild -->
 </body>
 </html>

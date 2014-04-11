@@ -1,6 +1,8 @@
-<div class="jumbotron">
-  <h1>Videos</h1>
+<h1>Videos</h1>
+<div ng-controller="VideosCtrl">
+  <input type="text" ng-enter="submitSearch()" ng-model="query">
 </div>
-
-<div class="row marketing">
+<div class="row">
+  <div id="videoholder">
+  </div>
 </div>
